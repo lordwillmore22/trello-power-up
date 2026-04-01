@@ -1,0 +1,21 @@
+{
+  "name": "trello-power-up-skeleton",
+  "version": "0.0.1",
+  "description": "A Power-Up skeleton to remix to start building your Power-Up!",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
