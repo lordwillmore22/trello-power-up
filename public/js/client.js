@@ -9,7 +9,7 @@ TrelloPowerUp.initialize({
   "card-buttons": function (t, options) {
     return [
       {
-        icon: "../rocket.png",
+        icon: "/rocket.png",
         text: "Estimate Size",
       },
     ];
