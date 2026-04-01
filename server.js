@@ -1,7 +1,8 @@
 var express = require('express');
-
+var cors = require('cors');
 var app = express();
 
+app.use(cors({ origin: 'https://trello.com' }));
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
