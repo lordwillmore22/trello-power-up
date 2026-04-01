@@ -11,6 +11,12 @@ TrelloPowerUp.initialize({
       {
         icon: "/rocket.png",
         text: "Estimate Size",
+        callback: function (t) {
+          return t.popup({
+            title: "Estimation",
+            url: "/estimate.html",
+          });
+        },
       },
     ];
   },
