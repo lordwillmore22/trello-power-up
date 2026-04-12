@@ -20,4 +20,29 @@ TrelloPowerUp.initialize({
       },
     ];
   },
+  'format-url': function (t, options) {
+    // options.url has the url that we are being asked to format
+    return {
+      icon: BLACK_ROCKET_ICON, // don't use a colored icon here
+      text: '👉 ' + options.url + ' 👈',
+      subtext: 'This will show us some text.',
+      image: {
+        url: 'https://example.com/image.png', // thumbnail url
+        size: 'contain' // background-size value that could be 'contain', 'original' or 'cover'
+      },
+      actions: [{
+        text: 'Download',
+        callback: (t) => {
+          // you can do things like t.popup etc.
+          console.log('Action clicked');
+        },
+      }],
+      thumbnail: COLOR_ICON // Deprecated - OK to use color icon here
+    };
+
+    // if we don't actually have any valuable information about the url
+    // we can let Trello know like so:
+    // throw t.NotHandled();
+  }
+
 });
