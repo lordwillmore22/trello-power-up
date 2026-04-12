@@ -9,12 +9,12 @@ var COLOR_ICON = BLACK_ROCKET_ICON;
 
 TrelloPowerUp.initialize({
   "card-buttons": function (t, options) {
+    console.log("booyakasha");
     return [
       {
         icon: "/rocket.png",
         text: "Estimate Size",
         callback: function (t) {
-          console.log("booyakasha");
           return t.popup({
             title: "Estimation",
             url: "/estimate.html",
