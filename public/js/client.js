@@ -5,6 +5,8 @@ var Promise = TrelloPowerUp.Promise;
 var BLACK_ROCKET_ICON =
   "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
 
+var COLOR_ICON = BLACK_ROCKET_ICON;
+
 TrelloPowerUp.initialize({
   "card-buttons": function (t, options) {
     return [
@@ -40,7 +42,7 @@ TrelloPowerUp.initialize({
           console.log('Action clicked');
         },
       }],
-      thumbnail: COLOR_ICON // Deprecated - OK to use color icon here
+      // thumbnail is deprecated, using image instead
     };
 
     // if we don't actually have any valuable information about the url
