@@ -8,22 +8,8 @@ var BLACK_ROCKET_ICON =
 var COLOR_ICON = BLACK_ROCKET_ICON;
 
 TrelloPowerUp.initialize({
-  "card-buttons": function (t, options) {
-    console.log("booyakasha");
-    return [
-      {
-        icon: "/rocket.png",
-        text: "Estimate Size",
-        callback: function (t) {
-          return t.popup({
-            title: "Estimation",
-            url: "/estimate.html",
-          });
-        },
-      },
-    ];
-  },
   'format-url': function (t, options) {
+    console.log("booyakasha");
     // options.url has the url that we are being asked to format
     return {
       icon: BLACK_ROCKET_ICON, // don't use a colored icon here
@@ -46,6 +32,21 @@ TrelloPowerUp.initialize({
     // if we don't actually have any valuable information about the url
     // we can let Trello know like so:
     // throw t.NotHandled();
-  }
+  },
+  "card-buttons": function (t, options) {
+    console.log("card-buttons")
+    return [
+      {
+        icon: "/rocket.png",
+        text: "Estimate Size",
+        callback: function (t) {
+          return t.popup({
+            title: "Estimation",
+            url: "/estimate.html",
+          });
+        },
+      },
+    ];
+  },
 
 });
