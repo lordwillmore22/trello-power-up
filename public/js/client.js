@@ -12,6 +12,7 @@ TrelloPowerUp.initialize({
         icon: "/rocket.png",
         text: "Estimate Size",
         callback: function (t) {
+          console.log("booyakasha");
           return t.popup({
             title: "Estimation",
             url: "/estimate.html",
