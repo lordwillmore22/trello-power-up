@@ -27,7 +27,7 @@ TrelloPowerUp.initialize({
       text: '👉 ' + options.url + ' 👈',
       subtext: 'This will show us some text.',
       image: {
-        url: 'https://example.com/image.png', // thumbnail url
+        url: 'https://www.wikihow.com/images/thumb/4/41/Get-the-URL-for-Pictures-Draft-Step-1.jpg/v4-460px-Get-the-URL-for-Pictures-Draft-Step-1.jpg', // thumbnail url
         size: 'contain' // background-size value that could be 'contain', 'original' or 'cover'
       },
       actions: [{
