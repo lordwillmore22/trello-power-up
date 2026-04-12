@@ -22,6 +22,7 @@ TrelloPowerUp.initialize({
   },
   'format-url': function (t, options) {
     // options.url has the url that we are being asked to format
+    let abc = 'def';
     return {
       icon: BLACK_ROCKET_ICON, // don't use a colored icon here
       text: '👉 ' + options.url + ' 👈',
