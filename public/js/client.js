@@ -56,6 +56,7 @@ TrelloPowerUp.initialize({
       // return an object with some or all of these properties:
       // title, image, modified (Date), created (Date),
       // createdBy, modifiedBy
+      console.log("attachment-thumbnail");
       return {
         title: parkName,
         image: {
