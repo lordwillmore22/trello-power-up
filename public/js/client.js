@@ -8,24 +8,26 @@ var BLACK_ROCKET_ICON =
 var COLOR_ICON = BLACK_ROCKET_ICON;
 
 TrelloPowerUp.initialize({
-  'format-url': function (t, options) {
+  "format-url": function (t, options) {
     console.log("booyakasha");
     // options.url has the url that we are being asked to format
     return {
       icon: BLACK_ROCKET_ICON, // don't use a colored icon here
-      text: '👉 ' + options.url + ' 👈',
-      subtext: 'This will show us some text.',
+      text: "👉 " + options.url + " 👈",
+      subtext: "This will show us some text.",
       image: {
-        url: 'https://www.wikihow.com/images/thumb/4/41/Get-the-URL-for-Pictures-Draft-Step-1.jpg/v4-460px-Get-the-URL-for-Pictures-Draft-Step-1.jpg', // thumbnail url
-        size: 'contain' // background-size value that could be 'contain', 'original' or 'cover'
+        url: "https://www.wikihow.com/images/thumb/4/41/Get-the-URL-for-Pictures-Draft-Step-1.jpg/v4-460px-Get-the-URL-for-Pictures-Draft-Step-1.jpg", // thumbnail url
+        size: "contain", // background-size value that could be 'contain', 'original' or 'cover'
       },
-      actions: [{
-        text: 'Download',
-        callback: (t) => {
-          // you can do things like t.popup etc.
-          console.log('Action clicked');
+      actions: [
+        {
+          text: "Download",
+          callback: (t) => {
+            // you can do things like t.popup etc.
+            console.log("Action clicked");
+          },
         },
-      }]
+      ],
       // thumbnail: COLOR_ICON // Deprecated - OK to use color icon here
     };
 
@@ -34,7 +36,7 @@ TrelloPowerUp.initialize({
     // throw t.NotHandled();
   },
   "card-buttons": function (t, options) {
-    console.log("card-buttons")
+    console.log("card-buttons");
     return [
       {
         icon: "/rocket.png",
@@ -48,5 +50,33 @@ TrelloPowerUp.initialize({
       },
     ];
   },
-
+  "attachment-thumbnail": function (t, options) {
+    var parkName = formatNPSUrl(t, options.url);
+    if (parkName) {
+      // return an object with some or all of these properties:
+      // title, image, modified (Date), created (Date),
+      // createdBy, modifiedBy
+      return {
+        title: parkName,
+        image: {
+          url: "./images/nps.svg",
+          logo: true, // false if you are using a thumbnail of the content
+        },
+      };
+    } else {
+      throw t.NotHandled();
+    }
+  },
 });
+
+var formatNPSUrl = function (t, url) {
+  if (!/^https?:\/\/www\.nps\.gov\/[a-z]{4}\//.test(url)) {
+    return null;
+  }
+  var parkShort = /^https?:\/\/www\.nps\.gov\/([a-z]{4})\//.exec(url)[1];
+  if (parkShort && parkMap[parkShort]) {
+    return parkMap[parkShort];
+  } else {
+    return null;
+  }
+};
