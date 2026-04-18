@@ -51,6 +51,7 @@ TrelloPowerUp.initialize({
     ];
   },
   "attachment-thumbnail": function (t, options) {
+    console.log("attachment-thumbnail");
     var parkName = formatNPSUrl(t, options.url);
     if (parkName) {
       // return an object with some or all of these properties:
