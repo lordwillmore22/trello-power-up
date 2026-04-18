@@ -56,34 +56,15 @@ TrelloPowerUp.initialize({
     ];
   },
   "attachment-thumbnail": function (t, options) {
-    console.log("attachment-thumbnail");
-    var parkName = formatNPSUrl(t, options.url);
-    if (parkName) {
-      // return an object with some or all of these properties:
-      // title, image, modified (Date), created (Date),
-      // createdBy, modifiedBy
-      console.log("attachment-thumbnail");
-      return {
-        title: parkName,
-        image: {
-          url: "./images/nps.svg",
-          logo: true, // false if you are using a thumbnail of the content
-        },
-      };
-    } else {
-      throw t.NotHandled();
-    }
+    console.log("attachment-thumbnail called for:", options.url);
+    // Return a thumbnail and title for ANY attached link
+    return {
+      title: options.url,
+      image: {
+        url: "../mysvg.svg",
+        logo: true, // true if using an icon/logo, false if a strict snapshot
+      },
+    };
   },
 });
 
-var formatNPSUrl = function (t, url) {
-  if (!/^https?:\/\/www\.nps\.gov\/[a-z]{4}\//.test(url)) {
-    return null;
-  }
-  var parkShort = /^https?:\/\/www\.nps\.gov\/([a-z]{4})\//.exec(url)[1];
-  if (parkShort && parkMap[parkShort]) {
-    return parkMap[parkShort];
-  } else {
-    return null;
-  }
-};
