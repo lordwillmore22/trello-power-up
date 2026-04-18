@@ -61,7 +61,7 @@ TrelloPowerUp.initialize({
     return {
       title: options.url,
       image: {
-        url: window.location.origin + "/mysvg.svg",
+        url: "https://trello-power-up-0sfk.onrender.com/mysvg.svg",
         logo: true, // true if using an icon/logo, false if a strict snapshot
       },
     };
